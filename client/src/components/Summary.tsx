@@ -151,8 +151,8 @@ export default function Summary({ selectedPackage, selectedPackages, selectedAdd
       </div>
 
       {/* Action Buttons */}
-      {onContinue && onBack && (
-        <div className="mt-8 space-y-4">
+      {onContinue && (
+        <div className="mt-8">
           <Button
             onClick={onContinue}
             disabled={!canContinue}
@@ -162,15 +162,6 @@ export default function Summary({ selectedPackage, selectedPackages, selectedAdd
             <i className="fas fa-arrow-right mr-2"></i>
             {t('common.continue')}
           </Button>
-
-          <div className="pt-2">
-            <Link href="/">
-              <Button variant="outline" className="w-full py-3 font-medium text-base" data-testid="button-back-home">
-                <i className="fas fa-arrow-left mr-2"></i>
-                {t('common.back')}
-              </Button>
-            </Link>
-          </div>
         </div>
       )}
     </div>
