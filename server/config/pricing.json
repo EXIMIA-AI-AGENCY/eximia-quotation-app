@@ -49,6 +49,7 @@
       "desc": "AI Premium Voice + AI Messages + CRM gratis - Solo pagas uso de AI",
       "hasAI": true,
       "popular": true,
+      "paymentLink": "https://link.fastpaydirect.com/payment-link/6939293cb8603cb6b63965c5",
       "canBundleWith": [
         "pro"
       ],
@@ -68,6 +69,7 @@
       "oneTime": 1000,
       "desc": "AI Basic Voice + AI Messages + CRM gratis - Solo pagas uso de AI",
       "hasAI": true,
+      "paymentLink": "https://link.fastpaydirect.com/payment-link/6939289c9c0cb2772522ac60",
       "canBundleWith": [
         "pro"
       ],
@@ -86,6 +88,7 @@
       "name": "EXIMIA CRM",
       "monthly": 197,
       "desc": "Automatización de CRM completa + número interno",
+      "paymentLink": "https://link.fastpaydirect.com/payment-link/693929049c0cb27ae322acb0",
       "features": [
         "Automatización de CRM completa",
         "Incluye 1 número interno mensual",
@@ -100,6 +103,8 @@
       "monthly": 30,
       "desc": "AI Chatbot + Voice calls automatizado para atención al cliente",
       "hasAI": true,
+      "freeTrialDays": 7,
+      "paymentLink": "https://link.fastpaydirect.com/payment-link/68feeefb67ee3b512b6a3c9a",
       "features": [
         "AI Chatbot inteligente 24/7",
         "AI Voice calls automatizadas",

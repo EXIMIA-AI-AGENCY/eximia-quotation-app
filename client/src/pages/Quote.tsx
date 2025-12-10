@@ -98,21 +98,26 @@ export default function Quote() {
 
   };
 
+
   const handleContinue = () => {
     // Allow continue if at least one package is selected
     if (selectedPackages.size === 0) return;
 
-    // Store selection in sessionStorage for next page
-    sessionStorage.setItem("quote", JSON.stringify({
-      packageId: primaryPackage || null,
-      packageIds: Array.from(selectedPackages),
-      addonIds: [],
-      usageEstimate,
-      contractTerm: "1month",
-    }));
+    // Get the primary package (first selected or the one that's not bundlable)
+    const selectedPackageId = primaryPackage || Array.from(selectedPackages)[0];
 
-    setLocation("/datos");
+    // Find the selected package and get its payment link
+    const pkg = (pricing as any)?.packages?.find((p: Package) => p.id === selectedPackageId);
+
+    if (pkg?.paymentLink) {
+      // Redirect to payment link
+      window.location.href = pkg.paymentLink;
+    } else {
+      // Fallback: show alert if no payment link configured
+      alert('Link de pago no configurado para este plan. Contacta soporte.');
+    }
   };
+
 
   if (isLoading) {
     return (

@@ -7,9 +7,6 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Navigation from "@/components/Navigation";
 import Home from "@/pages/Home";
 import Quote from "@/pages/Quote";
-import Data from "@/pages/Data";
-import Payment from "@/pages/Payment";
-import Confirmation from "@/pages/Confirmation";
 import TestInvoice from "@/pages/TestInvoice";
 import PayPalTest from "@/pages/PayPalTest";
 import AdminQuote from "@/pages/AdminQuote";
@@ -24,9 +21,6 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/cotizar" component={Quote} />
-          <Route path="/datos" component={Data} />
-          <Route path="/pago" component={Payment} />
-          <Route path="/confirmacion" component={Confirmation} />
           <Route path="/test-invoice" component={TestInvoice} />
           <Route path="/paypal-test" component={PayPalTest} />
           <Route path="/adminquote" component={AdminQuote} />

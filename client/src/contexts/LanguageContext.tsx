@@ -22,15 +22,15 @@ const translations = {
     "hero.title.brand": "EXIMIA",
     "hero.subtitle": "Elige tu paquete, personaliza con add-ons y activa tu suscripción hoy. Transforma tu negocio con la plataforma de automatización más avanzada.",
     "hero.cta": "Empieza tu cotización",
-    
+
     // Features
     "features.crm.title": "CRM Inteligente",
     "features.crm.description": "Automatiza tu gestión de clientes con IA avanzada",
-    "features.chatbot.title": "Chatbots Avanzados", 
+    "features.chatbot.title": "Chatbots Avanzados",
     "features.chatbot.description": "Conversaciones naturales las 24 horas",
     "features.automation.title": "Automatizaciones",
     "features.automation.description": "Workflows que convierten más y mejor",
-    
+
     // Quote page
     "quote.progress": "Paso 1 de 4",
     "quote.progress.label": "Cotización",
@@ -45,7 +45,7 @@ const translations = {
     "quote.adspend.label": "Presupuesto mensual para anuncios (USD)",
     "quote.adspend.placeholder": "1000",
     "quote.adspend.help": "Esta información nos ayuda a recomendarte el mejor plan. No afecta el precio.",
-    
+
     // Data/Contact form page
     "form.progress": "Paso 2 de 4",
     "form.progress.label": "Información de contacto",
@@ -79,7 +79,7 @@ const translations = {
     "form.back": "Volver",
     "form.submit": "Enviar",
     "form.submit.loading": "Enviando...",
-    
+
     // Payment/Confirmation page
     "payment.progress": "Paso 3 de 3",
     "payment.progress.label": "Cotización completada",
@@ -105,7 +105,7 @@ const translations = {
     "payment.expert.contact": "Un Experto de EXIMIA estara en contacto con usted pronto",
     "payment.security": "Cotización generada de forma segura mediante EXIMIA",
     "payment.schedule.button": "Agenda una cita",
-    
+
     // Confirmation page
     "confirmation.title": "¡Gracias por tu pago!",
     "confirmation.subtitle": "Tu pago ha sido procesado exitosamente. Te hemos enviado la confirmación por correo electrónico.",
@@ -125,7 +125,7 @@ const translations = {
     "confirmation.support.button": "Contactar soporte",
     "confirmation.home.button": "Volver al inicio",
     "confirmation.steps.title": "Próximos pasos",
-    
+
     // Admin pages
     "admin.login.title": "Panel de Administración",
     "admin.login.subtitle": "Ingresa tus credenciales para acceder",
@@ -144,11 +144,11 @@ const translations = {
     "admin.quotes.refresh": "Actualizar",
     "admin.user": "Administrador",
     "admin.nav": "Admin",
-    
+
     // NotFound page
     "notfound.title": "404 Página No Encontrada",
     "notfound.subtitle": "¿Olvidaste agregar la página al router?",
-    
+
     // Summary component
     "summary.title": "Resumen de cotización",
     "summary.package": "Paquete seleccionado:",
@@ -162,7 +162,7 @@ const translations = {
     "summary.subtotal.discounted": "Subtotal con descuento:",
     "summary.setup.free": "¡Genial! Tu cuota de configuración ($99) está incluida GRATIS por seleccionar contrato de",
     "summary.contract.3months": "3 meses",
-    "summary.contract.6months": "6 meses", 
+    "summary.contract.6months": "6 meses",
     "summary.contract.12months": "1 año",
     "summary.setup.fee": "Cuota de configuración:",
     "summary.setup.free.short": "(GRATIS)",
@@ -173,52 +173,48 @@ const translations = {
     "summary.taxes.note": "Precios en USD. Impuestos aplicables pueden variar según el servicio.",
     "summary.save.tip": "¡Ahorra $99! Selecciona un contrato de 3+ meses y obtén la configuración GRATIS.",
     "summary.setup.included": "por seleccionar contrato de",
-    
+
     // Package card
     "package.popular": "Más Popular",
     "package.bundle.available": "Se puede combinar con otros planes",
-    
+
     // Package names
     "package.starter.name": "EXIMIA CRM",
-    "package.chatbot.name": "EXIMIA AI", 
+    "package.chatbot.name": "EXIMIA AI",
     "package.ai_crm.name": "EXIMIA CRM + AI",
     "package.pro.name": "EXIMIA MARKETING SUITE",
     "package.enterprise.name": "EXIMIA MARKETING AND AI SUITE",
-    
+
     // Package descriptions
     "package.starter.desc": "Automatización de CRM completa + número interno",
     "package.chatbot.desc": "AI Chatbot + Voice calls automatizado para atención al cliente",
     "package.ai_crm.desc": "CRM automatizado + Inteligencia Artificial sin mercadeo",
     "package.pro.desc": "Todo del Starter + Website + Marketing Service + Artes",
     "package.enterprise.desc": "Todo del Pro + AI avanzado + desarrollo personalizado",
-    
+
     // Package features - Starter
     "package.starter.feature.0": "Automatización de CRM completa",
-    "package.starter.feature.1": "Incluye 1 número interno mensual", 
-    "package.starter.feature.2": "Uso del teléfono: $0.03/min llamadas, $0.01/SMS",
-    "package.starter.feature.3": "Configuración inicial incluida",
-    "package.starter.feature.4": "Soporte email",
-    
+    "package.starter.feature.1": "Incluye 1 número interno mensual",
+    "package.starter.feature.2": "Configuración inicial incluida",
+    "package.starter.feature.3": "Soporte email",
+
     // Package features - Chatbot 
     "package.chatbot.feature.0": "AI Chatbot inteligente 24/7",
     "package.chatbot.feature.1": "AI Voice calls automatizadas",
     "package.chatbot.feature.2": "Respuestas automatizadas personalizadas",
     "package.chatbot.feature.3": "Agendamiento de citas automático",
     "package.chatbot.feature.4": "Integración con tu página web",
-    "package.chatbot.feature.5": "Uso de AI: $0.02/mensaje, $0.05/llamada",
-    "package.chatbot.feature.6": "Configuración inicial incluida",
-    "package.chatbot.feature.7": "Soporte email",
-    
+    "package.chatbot.feature.5": "Configuración inicial incluida",
+    "package.chatbot.feature.6": "Soporte email",
+
     // Package features - AI CRM
     "package.ai_crm.feature.0": "Automatización de CRM completa",
     "package.ai_crm.feature.1": "AI Chatbot para agendar citas",
     "package.ai_crm.feature.2": "Llamadas de AI automatizadas",
     "package.ai_crm.feature.3": "Incluye 1 número interno mensual",
-    "package.ai_crm.feature.4": "Uso del teléfono: $0.03/min llamadas, $0.01/SMS",
-    "package.ai_crm.feature.5": "Uso de AI: $0.02/mensaje, $0.05/llamada",
-    "package.ai_crm.feature.6": "Configuración inicial incluida",
-    "package.ai_crm.feature.7": "Soporte email",
-    
+    "package.ai_crm.feature.4": "Configuración inicial incluida",
+    "package.ai_crm.feature.5": "Soporte email",
+
     // Package features - Pro
     "package.pro.feature.0": "Todo lo del CRM Starter",
     "package.pro.feature.1": "Website profesional incluido",
@@ -226,7 +222,7 @@ const translations = {
     "package.pro.feature.3": "3 artes gráficas mensuales (si es necesario)",
     "package.pro.feature.4": "Primer mes: 3 artes garantizados",
     "package.pro.feature.5": "Soporte prioritario",
-    
+
     // Package features - Enterprise
     "package.enterprise.feature.0": "Todo lo del paquete Pro",
     "package.enterprise.feature.1": "AI Chatbot para agendar citas",
@@ -237,19 +233,17 @@ const translations = {
     "package.enterprise.feature.6": "Integraciones personalizadas al CRM",
     "package.enterprise.feature.7": "Web app si es necesario para el negocio",
     "package.enterprise.feature.8": "Gestor de cuenta dedicado",
-    
+
     // Package features - AI Ultimate
     "package.ai_ultimate.name": "EXIMIA AI ULTIMATE",
     "package.ai_ultimate.desc": "AI Premium Voice + AI Messages + CRM gratis - Solo pagas uso de AI",
-    "package.ai_ultimate.feature.0": "AI Premium Voice incluido (LIFETIME)",
+    "package.ai_ultimate.feature.0": "External AI Agent (Premium) incluido (LIFETIME)",
     "package.ai_ultimate.feature.1": "AI Messages premium incluido (LIFETIME)",
     "package.ai_ultimate.feature.2": "CRM completo GRATIS",
     "package.ai_ultimate.feature.3": "1 número interno incluido",
-    "package.ai_ultimate.feature.4": "Uso de AI: $0.02/mensaje, $0.05/llamada",
-    "package.ai_ultimate.feature.5": "Uso del teléfono: $0.03/min llamadas, $0.01/SMS",
-    "package.ai_ultimate.feature.6": "Configuración inicial incluida",
-    "package.ai_ultimate.feature.7": "Soporte prioritario",
-    
+    "package.ai_ultimate.feature.4": "Configuración inicial incluida",
+    "package.ai_ultimate.feature.5": "Soporte prioritario",
+
     // Package features - AI Basic
     "package.ai_basic.name": "EXIMIA AI BASIC",
     "package.ai_basic.desc": "AI Basic Voice + AI Messages + CRM gratis - Solo pagas uso de AI",
@@ -258,30 +252,28 @@ const translations = {
     "package.ai_basic.feature.2": "Voz más robótica que Ultimate",
     "package.ai_basic.feature.3": "CRM completo GRATIS",
     "package.ai_basic.feature.4": "1 número interno incluido",
-    "package.ai_basic.feature.5": "Uso de AI: $0.02/mensaje, $0.05/llamada",
-    "package.ai_basic.feature.6": "Uso del teléfono: $0.03/min llamadas, $0.01/SMS",
-    "package.ai_basic.feature.7": "Configuración inicial incluida",
-    
+    "package.ai_basic.feature.5": "Configuración inicial incluida",
+
     // Add-on names
     "addon.whatsapp.name": "WhatsApp Business API",
     "addon.ai_integration.name": "Integración de AI Completa",
     "addon.hipaa_compliance.name": "Cumplimiento con HIPAA (para doctores)",
     "addon.coming_soon.name": "Más addons en camino...",
-    
+
     // Add-on descriptions
     "addon.whatsapp.desc": "Integra WhatsApp a tus automatizaciones",
     "addon.ai_integration.desc": "Integra AI calls y chatbot LIFETIME - Incluye REGISTRATION para SMS + 1 número interno - Uso: $0.03/min llamadas, $0.01/SMS, $0.02/mensaje AI, $0.05/llamada AI - Se puede obtener solo sin plan (pago único)",
     "addon.hipaa_compliance.desc": "Configuración completa para cumplimiento HIPAA",
     "addon.coming_soon.desc": "Próximamente más integraciones y funcionalidades",
-    
+
     // Add-on pricing labels
     "addon.pricing.one.time": "único",
     "addon.pricing.monthly": "/mes",
-    
+
     // Add-on availability messages
     "addon.non.ai.only": "Solo disponible para planes sin IA",
     "addon.requires.plan": "Requiere un paquete base primero",
-    
+
     // Contract terms
     "contract.term.1month": "1 mes",
     "contract.term.3months": "3 meses",
@@ -291,11 +283,11 @@ const translations = {
     "contract.label.3months": "3 meses (7% descuento)",
     "contract.label.6months": "6 meses (10% descuento)",
     "contract.label.1year": "1 año (15% descuento)",
-    
+
     // Common
     "common.loading": "Cargando...",
     "common.error": "Error",
-    
+
     // Error messages
     "error.data.incomplete": "Datos incompletos",
     "error.data.incomplete.desc": "Por favor completa el proceso desde el inicio",
@@ -320,7 +312,7 @@ const translations = {
     "common.ai.tooltip": "Incluye Inteligencia Artificial",
     "common.ai.only": "Solo integración de IA",
     "common.locale": "es",
-    
+
     // Toast messages
     "toast.welcome": "Bienvenido",
     "toast.access.granted": "Acceso autorizado al panel de administración",
@@ -334,15 +326,15 @@ const translations = {
     "hero.title.brand": "EXIMIA",
     "hero.subtitle": "Choose your package, customize with add-ons and activate your subscription today. Transform your business with the most advanced automation platform.",
     "hero.cta": "Start your quote",
-    
+
     // Features
     "features.crm.title": "Smart CRM",
     "features.crm.description": "Automate your customer management with advanced AI",
-    "features.chatbot.title": "Advanced Chatbots", 
+    "features.chatbot.title": "Advanced Chatbots",
     "features.chatbot.description": "Natural conversations 24/7",
     "features.automation.title": "Automations",
     "features.automation.description": "Workflows that convert better",
-    
+
     // Quote page
     "quote.progress": "Step 1 of 4",
     "quote.progress.label": "Quote",
@@ -357,7 +349,7 @@ const translations = {
     "quote.adspend.label": "Monthly advertising budget (USD)",
     "quote.adspend.placeholder": "1000",
     "quote.adspend.help": "This information helps us recommend the best plan. It does not affect pricing.",
-    
+
     // Data/Contact form page
     "form.progress": "Step 2 of 4",
     "form.progress.label": "Contact information",
@@ -391,7 +383,7 @@ const translations = {
     "form.back": "Back",
     "form.submit": "Send",
     "form.submit.loading": "Sending...",
-    
+
     // Payment/Confirmation page
     "payment.progress": "Step 3 of 3",
     "payment.progress.label": "Quote completed",
@@ -417,7 +409,7 @@ const translations = {
     "payment.expert.contact": "An EXIMIA Expert will be in touch with you soon",
     "payment.security": "Quote generated securely by EXIMIA",
     "payment.schedule.button": "Schedule an appointment",
-    
+
     // Confirmation page
     "confirmation.title": "Thank you for your payment!",
     "confirmation.subtitle": "Your payment has been processed successfully. We have sent you the confirmation via email.",
@@ -437,7 +429,7 @@ const translations = {
     "confirmation.support.button": "Contact support",
     "confirmation.home.button": "Back to home",
     "confirmation.steps.title": "Next steps",
-    
+
     // Admin pages
     "admin.login.title": "Administration Panel",
     "admin.login.subtitle": "Enter your credentials to access",
@@ -456,11 +448,11 @@ const translations = {
     "admin.login.back": "Back to home",
     "admin.login.auth.error": "Authentication error",
     "admin.login.connection.error": "Connection error. Please try again.",
-    
+
     // NotFound page
     "notfound.title": "404 Page Not Found",
     "notfound.subtitle": "Did you forget to add the page to the router?",
-    
+
     // Summary component
     "summary.title": "Quote summary",
     "summary.package": "Selected package:",
@@ -485,52 +477,46 @@ const translations = {
     "summary.taxes.note": "Prices in USD. Applicable taxes may vary by service.",
     "summary.save.tip": "Save $99! Select a 3+ month contract and get setup FREE.",
     "summary.setup.included": "contract",
-    
+
     // Package card
     "package.popular": "Most Popular",
     "package.bundle.available": "Can be combined with other plans",
-    
+
     // Package names
     "package.starter.name": "EXIMIA CRM",
     "package.chatbot.name": "EXIMIA AI",
     "package.ai_crm.name": "EXIMIA CRM + AI",
     "package.pro.name": "EXIMIA MARKETING SUITE",
     "package.enterprise.name": "EXIMIA MARKETING AND AI SUITE",
-    
+
     // Package descriptions  
     "package.starter.desc": "Complete CRM automation + internal number",
     "package.chatbot.desc": "AI Chatbot + automated Voice calls for customer service",
     "package.ai_crm.desc": "Automated CRM + Artificial Intelligence without marketing",
     "package.pro.desc": "Everything from Starter + Website + Marketing Service + Graphics",
     "package.enterprise.desc": "Everything from Pro + advanced AI + custom development",
-    
-    // Package features - Starter
+
     "package.starter.feature.0": "Complete CRM automation",
     "package.starter.feature.1": "Includes 1 monthly internal number",
-    "package.starter.feature.2": "Phone usage: $0.03/min calls, $0.01/SMS",
-    "package.starter.feature.3": "Initial setup included",
-    "package.starter.feature.4": "Email support",
-    
+    "package.starter.feature.2": "Initial setup included",
+    "package.starter.feature.3": "Email support",
+
     // Package features - Chatbot
     "package.chatbot.feature.0": "Intelligent AI Chatbot 24/7",
     "package.chatbot.feature.1": "Automated AI Voice calls",
     "package.chatbot.feature.2": "Personalized automated responses",
     "package.chatbot.feature.3": "Automatic appointment scheduling",
-    "package.chatbot.feature.4": "Integration with your website", 
-    "package.chatbot.feature.5": "AI usage: $0.02/message, $0.05/call",
-    "package.chatbot.feature.6": "Initial setup included",
-    "package.chatbot.feature.7": "Email support",
-    
-    // Package features - AI CRM
+    "package.chatbot.feature.4": "Integration with your website",
+    "package.chatbot.feature.5": "Initial setup included",
+    "package.chatbot.feature.6": "Email support",
+
     "package.ai_crm.feature.0": "Complete CRM automation",
     "package.ai_crm.feature.1": "AI Chatbot for appointment scheduling",
     "package.ai_crm.feature.2": "Automated AI calls",
     "package.ai_crm.feature.3": "Includes 1 monthly internal number",
-    "package.ai_crm.feature.4": "Phone usage: $0.03/min calls, $0.01/SMS",
-    "package.ai_crm.feature.5": "AI usage: $0.02/message, $0.05/call",
-    "package.ai_crm.feature.6": "Initial setup included",
-    "package.ai_crm.feature.7": "Email support",
-    
+    "package.ai_crm.feature.4": "Initial setup included",
+    "package.ai_crm.feature.5": "Email support",
+
     // Package features - Pro
     "package.pro.feature.0": "Everything from CRM Starter",
     "package.pro.feature.1": "Professional website included",
@@ -538,7 +524,7 @@ const translations = {
     "package.pro.feature.3": "3 monthly graphics (if needed)",
     "package.pro.feature.4": "First month: 3 graphics guaranteed",
     "package.pro.feature.5": "Priority support",
-    
+
     // Package features - Enterprise
     "package.enterprise.feature.0": "Everything from Pro package",
     "package.enterprise.feature.1": "AI Chatbot for appointment scheduling",
@@ -549,19 +535,17 @@ const translations = {
     "package.enterprise.feature.6": "Custom CRM integrations",
     "package.enterprise.feature.7": "Web app if needed for business",
     "package.enterprise.feature.8": "Dedicated account manager",
-    
+
     // Package features - AI Ultimate
     "package.ai_ultimate.name": "EXIMIA AI ULTIMATE",
     "package.ai_ultimate.desc": "AI Premium Voice + AI Messages + Free CRM - Only pay for AI usage",
-    "package.ai_ultimate.feature.0": "AI Premium Voice included (LIFETIME)",
+    "package.ai_ultimate.feature.0": "External AI Agent (Premium) included (LIFETIME)",
     "package.ai_ultimate.feature.1": "Premium AI Messages included (LIFETIME)",
     "package.ai_ultimate.feature.2": "Complete CRM FREE",
     "package.ai_ultimate.feature.3": "1 internal number included",
-    "package.ai_ultimate.feature.4": "AI usage: $0.02/message, $0.05/call",
-    "package.ai_ultimate.feature.5": "Phone usage: $0.03/min calls, $0.01/SMS",
-    "package.ai_ultimate.feature.6": "Initial setup included",
-    "package.ai_ultimate.feature.7": "Priority support",
-    
+    "package.ai_ultimate.feature.4": "Initial setup included",
+    "package.ai_ultimate.feature.5": "Priority support",
+
     // Package features - AI Basic
     "package.ai_basic.name": "EXIMIA AI BASIC",
     "package.ai_basic.desc": "AI Basic Voice + AI Messages + Free CRM - Only pay for AI usage",
@@ -570,44 +554,42 @@ const translations = {
     "package.ai_basic.feature.2": "More robotic voice than Ultimate",
     "package.ai_basic.feature.3": "Complete CRM FREE",
     "package.ai_basic.feature.4": "1 internal number included",
-    "package.ai_basic.feature.5": "AI usage: $0.02/message, $0.05/call",
-    "package.ai_basic.feature.6": "Phone usage: $0.03/min calls, $0.01/SMS",
-    "package.ai_basic.feature.7": "Initial setup included",
-    
+    "package.ai_basic.feature.5": "Initial setup included",
+
     // Add-on names
     "addon.whatsapp.name": "WhatsApp Business API",
     "addon.ai_integration.name": "Complete AI Integration",
     "addon.hipaa_compliance.name": "HIPAA Compliance (for doctors)",
     "addon.coming_soon.name": "More addons coming...",
-    
+
     // Add-on descriptions
     "addon.whatsapp.desc": "Integrate WhatsApp into your automations",
     "addon.ai_integration.desc": "Integrate AI calls and chatbot LIFETIME - Includes REGISTRATION for SMS + 1 internal number - Usage: $0.03/min calls, $0.01/SMS, $0.02/AI message, $0.05/AI call - Can be obtained standalone without plan (one-time payment)",
     "addon.hipaa_compliance.desc": "Complete setup for HIPAA compliance",
     "addon.coming_soon.desc": "More integrations and functionalities coming soon",
-    
+
     // Add-on pricing labels
     "addon.pricing.one.time": "one-time",
     "addon.pricing.monthly": "/mo",
-    
+
     // Add-on availability messages
     "addon.non.ai.only": "Only available for non-AI plans",
     "addon.requires.plan": "Requires a base package first",
-    
+
     // Contract terms
     "contract.term.1month": "1 month",
     "contract.term.3months": "3 months",
-    "contract.term.6months": "6 months", 
+    "contract.term.6months": "6 months",
     "contract.term.1year": "1 year",
     "contract.label.1month": "Month to month",
     "contract.label.3months": "3 months (7% discount)",
     "contract.label.6months": "6 months (10% discount)",
     "contract.label.1year": "1 year (15% discount)",
-    
+
     // Common
     "common.loading": "Loading...",
     "common.error": "Error",
-    
+
     // Error messages
     "error.data.incomplete": "Incomplete data",
     "error.data.incomplete.desc": "Please complete the process from the beginning",
@@ -632,7 +614,7 @@ const translations = {
     "common.ai.tooltip": "Includes Artificial Intelligence",
     "common.ai.only": "AI integration only",
     "common.locale": "en",
-    
+
     // Toast messages
     "toast.welcome": "Welcome",
     "toast.access.granted": "Authorized access to the administration panel",
@@ -677,7 +659,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       // Check if user has manually selected a language (has flag indicating manual selection)
       const savedLanguage = localStorage.getItem('eximia-language');
       const isManualSelection = localStorage.getItem('eximia-language-manual') === 'true';
-      
+
       if (savedLanguage && (savedLanguage === 'es' || savedLanguage === 'en') && isManualSelection) {
         // User manually selected this language, use it
         setLanguageState(savedLanguage);
@@ -690,7 +672,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
         // Don't set manual flag - this was auto-detected
         localStorage.removeItem('eximia-language-manual');
       }
-      
+
       setIsInitialized(true);
     };
 
