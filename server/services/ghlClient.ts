@@ -72,36 +72,36 @@ class GHLClient {
   private baseUrl: string;
 
   constructor() {
-    this.apiKey = process.env.GHL_API_KEY!;
+    this.apiKey = process.env.GHL_API_KEY || "";
     this.baseUrl = "https://services.leadconnectorhq.com";
-    
+
     if (!this.apiKey) {
-      throw new Error("GHL_API_KEY environment variable is required");
+      console.warn("⚠️  GHL_API_KEY not configured - GHL integration disabled");
+    } else {
+      console.log(`GHL Token: ${this.apiKey.substring(0, 15)}...`);
     }
-    
-    console.log(`GHL Token: ${this.apiKey.substring(0, 15)}...`);
   }
 
   // Formatear número para compatibilidad con GoHighLevel
   private formatPhoneForGHL(phone: string): string {
     // Limpiar el número: solo dígitos
     const cleaned = phone.replace(/\D/g, '');
-    
+
     // Si empieza con 1 y tiene 11 dígitos (formato US/PR), mantenerlo
     if (cleaned.length === 11 && cleaned.startsWith('1')) {
       return `+${cleaned}`;
     }
-    
+
     // Si tiene 10 dígitos, agregar código de país US/PR
     if (cleaned.length === 10) {
       return `+1${cleaned}`;
     }
-    
+
     // Si ya tiene código de país, mantenerlo con +
     if (cleaned.length > 10) {
       return `+${cleaned}`;
     }
-    
+
     // Para números más cortos, devolver tal como está pero con +
     return `+${cleaned}`;
   }
@@ -114,18 +114,18 @@ class GHLClient {
       cleaned, // Solo números
       `+${cleaned}`, // Con +
     ];
-    
+
     // Si no tiene código de país, agregar variación con +1
     if (cleaned.length === 10) {
       variations.push(`+1${cleaned}`);
       variations.push(`1${cleaned}`);
     }
-    
+
     // Si tiene código de país 1, agregar variación sin él
     if (cleaned.length === 11 && cleaned.startsWith('1')) {
       variations.push(cleaned.substring(1));
     }
-    
+
     return Array.from(new Set(variations)); // Eliminar duplicados
   }
 
@@ -141,7 +141,7 @@ class GHLClient {
     try {
       const phoneVariations = this.getPhoneVariations(phone);
       console.log("Searching for contact with phone variations:", phoneVariations);
-      
+
       // Probar búsqueda con cada variación del número
       for (const variation of phoneVariations) {
         try {
@@ -160,13 +160,13 @@ class GHLClient {
             // Buscar contacto que coincida con cualquier variación del teléfono
             const existingContact = response.data.contacts.find((contact: any) => {
               if (!contact.phone) return false;
-              
+
               const contactVariations = this.getPhoneVariations(contact.phone);
-              return phoneVariations.some(userVar => 
+              return phoneVariations.some(userVar =>
                 contactVariations.some(contactVar => contactVar === userVar)
               );
             });
-            
+
             if (existingContact) {
               console.log("Found existing contact with phone:", variation, "→ ID:", existingContact.id);
               return existingContact.id;
@@ -177,7 +177,7 @@ class GHLClient {
           continue;
         }
       }
-      
+
       return null;
     } catch (error: any) {
       console.log("No existing contact found for phone:", phone);
@@ -203,16 +203,16 @@ class GHLClient {
   async createContact(params: CreateContactParams): Promise<string> {
     try {
       const quotationTag = "eximia-cotizacion";
-      
+
       // Primero, buscar contacto existente por teléfono
       const existingContactId = await this.searchContactByPhone(params.locationId, params.phone);
       if (existingContactId) {
         console.log("Found existing contact with phone:", params.phone, "ID:", existingContactId);
-        
+
         // Agregar tag de cotización al contacto existente
         await this.addTagToContact(existingContactId, quotationTag);
         console.log("Added quotation tag to existing contact");
-        
+
         return existingContactId;
       }
 
@@ -236,25 +236,25 @@ class GHLClient {
       const newContactId = response.data.contact?.id || response.data.id;
       console.log("Created new contact with eximia-cotizacion tag, ID:", newContactId);
       return newContactId;
-      
+
     } catch (error: any) {
       console.log("Error response:", error.response?.data);
-      
+
       // Si el contacto ya existe, usar el ID del contacto existente y agregar tag
       if (error.response?.status === 400 && error.response?.data?.message?.includes("duplicated contacts")) {
         const existingContactId = error.response?.data?.meta?.contactId;
-        
+
         if (existingContactId) {
           console.log("Contact already exists (from error), using existing contact ID:", existingContactId);
-          
+
           // Agregar tag de cotización al contacto existente
           await this.addTagToContact(existingContactId, "eximia-cotizacion");
           console.log("Added quotation tag to existing contact from error");
-          
+
           return existingContactId;
         }
       }
-      
+
       console.error("GHL contact creation error:", error.response?.data || error);
       throw new Error("Failed to create contact in GoHighLevel");
     }
@@ -273,56 +273,56 @@ class GHLClient {
       const normalizedPhone = params.contactPhone ? this.normalizePhoneToE164(params.contactPhone) : "+17875550123";
 
       const requestData = {
-          altId: params.locationId,
-          altType: "location",
-          name: params.name,
+        altId: params.locationId,
+        altType: "location",
+        name: params.name,
+        currency: params.currency,
+        businessDetails: {
+          name: "EXIMIA",
+          address: {
+            addressLine1: "Puerto Rico",
+            city: "San Juan",
+            state: "PR",
+            countryCode: "US",
+            postalCode: "00901"
+          },
+          phoneNo: "+17875550123",
+          website: "www.eximia.agency"
+        },
+        contactDetails: {
+          id: params.contactId,
+          name: params.contactName || "Cliente EXIMIA",
+          phoneNo: normalizedPhone,
+          email: params.contactEmail || "info@eximia.agency"
+        },
+        items: params.items.map(item => ({
+          name: item.name,
+          description: item.description,
+          amount: item.amount,
+          qty: item.qty,
           currency: params.currency,
-          businessDetails: {
-            name: "EXIMIA",
-            address: {
-              addressLine1: "Puerto Rico",
-              city: "San Juan",
-              state: "PR",
-              countryCode: "US",
-              postalCode: "00901"
-            },
-            phoneNo: "+17875550123",
-            website: "www.eximia.agency"
-          },
-          contactDetails: {
-            id: params.contactId,
-            name: params.contactName || "Cliente EXIMIA",
-            phoneNo: normalizedPhone,
-            email: params.contactEmail || "info@eximia.agency"
-          },
-          items: params.items.map(item => ({
-            name: item.name,
-            description: item.description,
-            amount: item.amount,
-            qty: item.qty,
-            currency: params.currency,
-            type: "one_time"
-          })),
-          issueDate: today.toISOString().split('T')[0],
-          dueDate: new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-          liveMode: false,
-          discount: {
-            type: "percentage",
-            value: 0
-          },
-          sentTo: {
-            email: [params.contactEmail || "info@eximia.agency"]
-          }
-        };
+          type: "one_time"
+        })),
+        issueDate: today.toISOString().split('T')[0],
+        dueDate: new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        liveMode: false,
+        discount: {
+          type: "percentage",
+          value: 0
+        },
+        sentTo: {
+          email: [params.contactEmail || "info@eximia.agency"]
+        }
+      };
 
-        console.log("Creating GHL Estimate with data:", JSON.stringify(requestData, null, 2));
+      console.log("Creating GHL Estimate with data:", JSON.stringify(requestData, null, 2));
 
-        // Use the correct GHL invoices endpoint
-        const response = await axios.post(
-          `${this.baseUrl}/invoices/`,
-          requestData,
-          { headers: this.getHeaders() }
-        );
+      // Use the correct GHL invoices endpoint
+      const response = await axios.post(
+        `${this.baseUrl}/invoices/`,
+        requestData,
+        { headers: this.getHeaders() }
+      );
 
       return {
         _id: response.data._id,
@@ -349,52 +349,52 @@ class GHLClient {
       const normalizedPhone = params.contactPhone ? this.normalizePhoneToE164(params.contactPhone) : "+17875550123";
 
       const requestData = {
-          altId: params.locationId,
-          altType: "location",
-          name: params.name,
-          currency: params.currency,
-          businessDetails: {
-            name: "EXIMIA",
-            address: {
-              addressLine1: "Puerto Rico",
-              city: "San Juan",
-              state: "PR",
-              countryCode: "US",
-              postalCode: "00901"
-            },
-            phoneNo: "+17875550123",
-            website: "www.eximia.agency"
+        altId: params.locationId,
+        altType: "location",
+        name: params.name,
+        currency: params.currency,
+        businessDetails: {
+          name: "EXIMIA",
+          address: {
+            addressLine1: "Puerto Rico",
+            city: "San Juan",
+            state: "PR",
+            countryCode: "US",
+            postalCode: "00901"
           },
-          contactDetails: {
-            id: params.contactId,
-            name: params.contactName || "Cliente EXIMIA",
-            phoneNo: normalizedPhone,
-            email: params.contactEmail || "info@eximia.agency"
-          },
-          items: params.items.map(item => ({
-            name: item.name,
-            description: item.description,
-            amount: item.amount,
-            qty: item.qty,
-            currency: params.currency
-          })),
-          issueDate: today.toISOString().split('T')[0],
-          dueDate: params.dueDate || dueDate.toISOString().split('T')[0],
-          liveMode: false,
-          discount: {
-            type: "percentage",
-            value: 0
-          },
-          sentTo: {
-            email: ["info@eximia.agency"]
-          }
-        };
+          phoneNo: "+17875550123",
+          website: "www.eximia.agency"
+        },
+        contactDetails: {
+          id: params.contactId,
+          name: params.contactName || "Cliente EXIMIA",
+          phoneNo: normalizedPhone,
+          email: params.contactEmail || "info@eximia.agency"
+        },
+        items: params.items.map(item => ({
+          name: item.name,
+          description: item.description,
+          amount: item.amount,
+          qty: item.qty,
+          currency: params.currency
+        })),
+        issueDate: today.toISOString().split('T')[0],
+        dueDate: params.dueDate || dueDate.toISOString().split('T')[0],
+        liveMode: false,
+        discount: {
+          type: "percentage",
+          value: 0
+        },
+        sentTo: {
+          email: ["info@eximia.agency"]
+        }
+      };
 
-        const response = await axios.post(
-          `${this.baseUrl}/invoices/`,
-          requestData,
-          { headers: this.getHeaders() }
-        );
+      const response = await axios.post(
+        `${this.baseUrl}/invoices/`,
+        requestData,
+        { headers: this.getHeaders() }
+      );
 
       return {
         _id: response.data._id,
@@ -460,7 +460,7 @@ class GHLClient {
       console.warn("GHL_WEBHOOK_SECRET not configured");
       return true; // Allow for now, but should implement proper verification
     }
-    
+
     // For now, just return true - implement proper verification based on GHL docs
     return true;
   }
@@ -472,22 +472,22 @@ export const ghlClient = new GHLClient();
 export function formatPhoneForWebhook(phone: string): string {
   // Limpiar el número: solo dígitos
   const cleaned = phone.replace(/\D/g, '');
-  
+
   // Si empieza con 1 y tiene 11 dígitos (formato US/PR), mantenerlo
   if (cleaned.length === 11 && cleaned.startsWith('1')) {
     return `+${cleaned}`;
   }
-  
+
   // Si tiene 10 dígitos, agregar código de país US/PR
   if (cleaned.length === 10) {
     return `+1${cleaned}`;
   }
-  
+
   // Si ya tiene código de país, mantenerlo con +
   if (cleaned.length > 10) {
     return `+${cleaned}`;
   }
-  
+
   // Para números más cortos, devolver tal como está pero con +
   return `+${cleaned}`;
 }

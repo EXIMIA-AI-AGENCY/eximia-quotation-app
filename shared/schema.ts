@@ -1,43 +1,45 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, decimal, boolean, timestamp, json, index, jsonb } from "drizzle-orm/pg-core";
+import { sqliteTable, text, integer, index } from "drizzle-orm/sqlite-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
 // Session storage table for Replit Auth
-export const sessions = pgTable(
+export const sessions = sqliteTable(
   "sessions",
   {
-    sid: varchar("sid").primaryKey(),
-    sess: jsonb("sess").notNull(),
-    expire: timestamp("expire").notNull(),
+    sid: text("sid").primaryKey(),
+    sess: text("sess", { mode: 'json' }).notNull(),
+    expire: integer("expire", { mode: 'timestamp' }).notNull(),
   },
-  (table) => [index("IDX_session_expire").on(table.expire)],
+  (table) => ({
+    expireIdx: index("IDX_session_expire").on(table.expire),
+  }),
 );
 
 // User storage table for Replit Auth
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  email: varchar("email").unique(),
-  firstName: varchar("first_name"),
-  lastName: varchar("last_name"),
-  profileImageUrl: varchar("profile_image_url"),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
+export const users = sqliteTable("users", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  email: text("email").unique(),
+  firstName: text("first_name"),
+  lastName: text("last_name"),
+  profileImageUrl: text("profile_image_url"),
+  createdAt: integer("created_at", { mode: 'timestamp' }).$defaultFn(() => new Date()),
+  updatedAt: integer("updated_at", { mode: 'timestamp' }).$defaultFn(() => new Date()),
 });
 
-export const quotes = pgTable("quotes", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+export const quotes = sqliteTable("quotes", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
   packageId: text("package_id").notNull(),
-  addonIds: json("addon_ids").$type<string[]>().default([]),
+  addonIds: text("addon_ids", { mode: 'json' }).$type<string[]>().default(sql`'[]'`),
   contractTerm: text("contract_term").default("1month"),
-  contact: json("contact").$type<ContactInfo>().notNull(),
-  totals: json("totals").$type<QuoteTotals>().notNull(),
+  contact: text("contact", { mode: 'json' }).$type<ContactInfo>().notNull(),
+  totals: text("totals", { mode: 'json' }).$type<QuoteTotals>().notNull(),
   eximiaContactId: text("eximia_contact_id"),
   ghlInvoiceId: text("ghl_invoice_id"),
   ghlCustomerId: text("ghl_customer_id"),
   paymentUrl: text("payment_url"),
   status: text("status").default("pending"), // pending, paid, cancelled
-  createdAt: timestamp("created_at").defaultNow(),
+  createdAt: integer("created_at", { mode: 'timestamp' }).$defaultFn(() => new Date()),
 });
 
 export interface ContactInfo {

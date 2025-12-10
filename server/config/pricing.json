@@ -7,9 +7,9 @@
     "rate": 0
   },
   "setupFee": {
-    "enabled": true,
+    "enabled": false,
     "label": "Cuota de configuración (única) - Gratis con contratos 3+ meses",
-    "amount": 99
+    "amount": 0
   },
   "contractTerms": [
     {
@@ -20,7 +20,7 @@
       "label": "Mes a mes"
     },
     {
-      "id": "3months", 
+      "id": "3months",
       "name": "3 meses",
       "months": 3,
       "discount": 0.07,
@@ -28,7 +28,7 @@
     },
     {
       "id": "6months",
-      "name": "6 meses", 
+      "name": "6 meses",
       "months": 6,
       "discount": 0.10,
       "label": "6 meses (10% descuento)"
@@ -49,14 +49,14 @@
       "desc": "AI Premium Voice + AI Messages + CRM gratis - Solo pagas uso de AI",
       "hasAI": true,
       "popular": true,
-      "canBundleWith": ["pro"],
+      "canBundleWith": [
+        "pro"
+      ],
       "features": [
-        "AI Premium Voice incluido (LIFETIME)",
+        "External AI Agent (Premium) incluido (LIFETIME)",
         "AI Messages premium incluido (LIFETIME)",
         "CRM completo GRATIS",
         "1 número interno incluido",
-        "Uso de AI: $0.02/mensaje, $0.05/llamada",
-        "Uso del teléfono: $0.03/min llamadas, $0.01/SMS",
         "Configuración inicial incluida",
         "Soporte prioritario"
       ],
@@ -68,15 +68,15 @@
       "oneTime": 1000,
       "desc": "AI Basic Voice + AI Messages + CRM gratis - Solo pagas uso de AI",
       "hasAI": true,
-      "canBundleWith": ["pro"],
+      "canBundleWith": [
+        "pro"
+      ],
       "features": [
         "AI Basic Voice incluido (LIFETIME)",
         "AI Messages incluido (LIFETIME)",
         "Voz más robótica que Ultimate",
         "CRM completo GRATIS",
         "1 número interno incluido",
-        "Uso de AI: $0.02/mensaje, $0.05/llamada",
-        "Uso del teléfono: $0.03/min llamadas, $0.01/SMS",
         "Configuración inicial incluida"
       ],
       "ghlPriceId": "ai_basic_plan"
@@ -89,7 +89,6 @@
       "features": [
         "Automatización de CRM completa",
         "Incluye 1 número interno mensual",
-        "Uso del teléfono: $0.03/min llamadas, $0.01/SMS",
         "Configuración inicial incluida",
         "Soporte email"
       ],
@@ -107,46 +106,10 @@
         "Respuestas automatizadas personalizadas",
         "Agendamiento de citas automático",
         "Integración con tu página web",
-        "Uso de AI: $0.02/mensaje, $0.05/llamada",
         "Configuración inicial incluida",
         "Soporte email"
       ],
       "ghlPriceId": "chatbot_plan"
-    },
-    {
-      "id": "pro",
-      "name": "EXIMIA MARKETING SUITE",
-      "monthly": 650,
-      "desc": "Todo del Starter + Website + Marketing Service + Artes",
-      "canBundleWith": ["ai_ultimate", "ai_basic"],
-      "features": [
-        "Todo lo del CRM Starter",
-        "Website profesional incluido",
-        "Marketing Service completo",
-        "3 artes gráficas mensuales (si es necesario)",
-        "Primer mes: 3 artes garantizados",
-        "Soporte prioritario"
-      ],
-      "ghlPriceId": "pro_plan"
-    },
-    {
-      "id": "enterprise",
-      "name": "EXIMIA MARKETING AND AI SUITE",
-      "monthly": 997,
-      "desc": "Todo del Pro + AI avanzado + desarrollo personalizado",
-      "hasAI": true,
-      "features": [
-        "Todo lo del paquete Pro",
-        "AI Chatbot para agendar citas",
-        "Llamadas de AI automatizadas",
-        "Artes ilimitadas para campañas de generación de leads (<strong>mientras sea necesario para la eficiencia de la campaña.</strong>)",
-        "Leads garantizados cada mes",
-        "1 video al mes de alta calidad para social media",
-        "Integraciones personalizadas al CRM",
-        "Web app si es necesario para el negocio",
-        "Gestor de cuenta dedicado"
-      ],
-      "ghlPriceId": "enterprise_plan"
     }
   ],
   "addons": [
