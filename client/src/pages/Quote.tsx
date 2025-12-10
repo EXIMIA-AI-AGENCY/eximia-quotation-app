@@ -130,17 +130,6 @@ export default function Quote() {
   return (
     <div className="fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
-        {/* Progress Bar */}
-        <div className="mb-6 lg:mb-8" data-testid="progress-bar">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-muted-foreground">{t('quote.progress')}</span>
-            <span className="text-sm font-medium text-muted-foreground">{t('quote.progress.label')}</span>
-          </div>
-          <div className="w-full bg-secondary rounded-full h-2">
-            <div className="bg-primary h-2 rounded-full transition-all duration-300" style={{ width: "25%" }}></div>
-          </div>
-        </div>
-
         <div className="flex flex-col lg:grid lg:grid-cols-4 gap-6 lg:gap-8">
           {/* Main Content */}
           <div className="lg:col-span-3 order-1 lg:order-1">
